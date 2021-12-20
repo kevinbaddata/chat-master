@@ -71,53 +71,51 @@ if (isset($_POST['submitbtn'])) {
     //[size] => 24529 ) )
 
 
-    function addFile($image, $target_dir)
-    {
-        if (!file_exists($target_dir)) {
-            mkdir($target_dir);
+
+    if (!file_exists('assets/upload')) {
+        mkdir('assets/upload');
+    }
+
+    $image = $_FILES['file'];
+    $size = $_FILES['file']['size'];
+    $tmp_name = $_FILES['file']['tmp_name'];
+
+
+    if ($size === 0) {
+
+        $fileError = 'Please choose a file';
+        array_push($errorArray, 'Please choose a file');
+        $imageErrorMessage = 'Please upload a file';
+    } else {
+        $target_dir = 'assets/upload/';
+
+        $extension = explode('.', $image['name'])[1];
+        if (
+            $extension !== 'jpeg' &&
+            $extension !== 'png' &&
+            $extension !== 'jpg' &&
+            $extension !== 'gif'
+        ) {
+            $fileError = 'Please enter a valid file extension';
+            array_push($errorArray, 'Please enter a valid file extension');
         }
 
-        $image = $_FILES['file'];
-        $size = $_FILES['file']['size'];
-        $tmp_name = $_FILES['file']['tmp_name'];
 
+        if ($size > 5000000) {
+            $fileError = 'File must at least be 5mb';
+            array_push($errorArray, 'File must at least be 5mb');
+        }
 
-        if ($size === 0) {
-
-            $fileError = 'Please choose a file';
-            array_push($errorArray, 'Please choose a file');
-            $imageErrorMessage = 'Please upload a file';
-        } else {
-
-
-            $extension = explode('.', $image['name'])[1];
-            if (
-                $extension !== 'jpeg' &&
-                $extension !== 'png' &&
-                $extension !== 'jpg' &&
-                $extension !== 'gif'
-            ) {
-                $fileError = 'Please enter a valid file extension';
-                array_push($errorArray, 'Please enter a valid file extension');
-            }
-
-
-            if ($size > 5000000) {
-                $fileError = 'File must at least be 5mb';
-                array_push($errorArray, 'File must at least be 5mb');
-            }
-
-            $imageName = time() . rand(1, 66000) . '.' . $extension;
-            $fileUpload = move_uploaded_file($tmp_name, $target_dir . $imageName);
-            if (!$fileUpload) {
-                $fileError = 'Unable to upload file, please try again';
-                array_push($errorArray, 'Unable to upload file, please try agai');
-            }
+        $imageName = time() . rand(1, 66000) . '.' . $extension;
+        $fileUpload = move_uploaded_file($tmp_name, $target_dir . $imageName);
+        if (!$fileUpload) {
+            $fileError = 'Unable to upload file, please try again';
+            array_push($errorArray, 'Unable to upload file, please try agai');
         }
     }
 
 
-    addFile(@$_FILES['file'], 'assets/upload');
+
 
 
 
@@ -165,7 +163,7 @@ if (isset($_POST['submitbtn'])) {
                 // No error? INSERT INTO database
                 $sql = "INSERT INTO tbl_users 
         (email, username, password, date, image) 
-        VALUES ('$email', '$username', '$password', '$date', '@$imageName')";
+        VALUES ('$email', '$username', '$password', '$date', '$imageName')";
 
                 if ($db->query($sql) === TRUE) {
 

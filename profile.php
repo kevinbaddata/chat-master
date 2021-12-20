@@ -102,7 +102,6 @@ if (isset($_POST['updatebtn'])) {
 
 
     if ($db->query($sql) === TRUE) {
-        echo "Record updated successfully";
         header('location:' . $_SERVER['HTTP_REFERER']);
     } else {
         echo "Error updating record: " . $db->error;

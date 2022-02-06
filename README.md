@@ -29,3 +29,14 @@ $s_sql = "SELECT * FROM tbl_settings WHERE id = 1";
 $s_result = $db->query($s_sql);
 $s_row =  $s_result->fetch_assoc();
 ```
+
+The application lets users register their own unique account that can be modified at users discretion. 
+
+Users have access to unique features like 
+
+
+- **Account registration**
+- **Profile pictures**
+- **Ability to talk with other users in the database**
+- **Use unique emojis** 
+

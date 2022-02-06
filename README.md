@@ -40,3 +40,34 @@ Users have access to unique features like
 - **Ability to talk with other users in the database**
 - **Use unique emojis** 
 
+
+                   tbl_users
+Auto
+id-int
+email-text
+password-text
+username-text
+date-date
+image-text
+type-int
+
+
+	
+					tbl_message
+Auto
+id-int
+message-text
+receiver_id-int
+poster_id-int
+tid-timestamp
+
+
+
+					tbl_settings
+Auto
+id-int
+title-text
+main_text_color-text
+main_background_color-text
+
+

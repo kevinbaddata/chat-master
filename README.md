@@ -40,6 +40,8 @@ Users have access to unique features like
 - **Ability to talk with other users in the database**
 - **Use unique emojis** 
 
+Database consists of 3 tables which can be found below
+
 **tbl_messages**
 `Auto
 id-int,

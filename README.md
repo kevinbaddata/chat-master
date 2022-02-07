@@ -41,7 +41,6 @@ Users have access to unique features like
 - **Use unique emojis** 
 
 
-                   tbl_users
 Auto
 id-int
 email-text
@@ -53,7 +52,7 @@ type-int
 
 
 	
-					tbl_message
+					
 Auto
 id-int
 message-text
@@ -63,7 +62,7 @@ tid-timestamp
 
 
 
-					tbl_settings
+					
 Auto
 id-int
 title-text

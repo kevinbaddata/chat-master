@@ -40,7 +40,7 @@ Users have access to unique features like
 - **Ability to talk with other users in the database**
 - **Use unique emojis** 
 
-tbl_messages
+**tbl_messages**
 `Auto
 id-int
 email-text
@@ -52,21 +52,21 @@ type-int`
 
 
 	
-tbl_settings					
-Auto
+**tbl_settings**					
+`Auto
 id-int
 message-text
 receiver_id-int
 poster_id-int
-tid-timestamp
+tid-timestamp`
 
 
 
-tbl_users					
-Auto
+**tbl_users**					
+`Auto
 id-int
 title-text
 main_text_color-text
-main_background_color-text
+main_background_color-text`
 
 

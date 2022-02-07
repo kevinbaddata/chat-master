@@ -41,14 +41,14 @@ Users have access to unique features like
 - **Use unique emojis** 
 
 tbl_messages
-Auto
+`Auto
 id-int
 email-text
 password-text
 username-text
 date-date
 image-text
-type-int
+type-int`
 
 
 	

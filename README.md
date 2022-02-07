@@ -42,31 +42,31 @@ Users have access to unique features like
 
 **tbl_messages**
 `Auto
-id-int
-email-text
-password-text
-username-text
-date-date
-image-text
+id-int,
+email-text,
+password-text,
+username-text,
+date-date,
+image-text,
 type-int`
 
 
 	
 **tbl_settings**					
 `Auto
-id-int
-message-text
-receiver_id-int
-poster_id-int
+id-int,
+message-text,
+receiver_id-int,
+poster_id-int,
 tid-timestamp`
 
 
 
 **tbl_users**					
 `Auto
-id-int
-title-text
-main_text_color-text
+id-int,
+title-text,
+main_text_color-text,
 main_background_color-text`
 
 
